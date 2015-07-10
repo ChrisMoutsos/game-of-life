@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Conway's Game of Life</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script type="text/javascript" src="/script.js"></script>
+    
+  </head>
+  
+  <body>
+    <div class="maintitle">
+     <h1 class="maintitletext">Conway's Game of Life</h1>
+    </div>
+    <br>
+    
+    <div class="boardcontainer">
+      <canvas class="board" id="board" width="874" height="499">
+      </canvas>
+    </div>
+    
+    <br>
+    <div class="title">
+      <div class="titletext">Controls</div>
+    </div>
+    
+    <div class="texty">
+      Rows: <input type="text" maxlength="3" class="sizeinput" id="rowinput" value="">
+      Cols: <input type="text" maxlength="3" class="sizeinput" id="colinput" value="">
+      <input type="button" class="sizebutton" id="resize" value="Resize">
+
+      <div class="controlcontainer">
+        <input type="button" class="controlbutton" id="startstop" value="Start">
+        <input type="button" class="controlbutton" id="reset" value="Reset">
+        <input type="button" class="controlbutton" id="random" value="Random">
+        <select id="speedselect">
+          <option value="300">Slower</option>
+          <option value="150">Slow</option>
+          <option value="100">Medium</option>
+          <option value="1" selected="selected">Fast</option>
+        </select>
+        <input type="checkbox" id="wrap" checked><font size="2">Wrap-around</font>
+     </div>
+    </div>
+    <br>
+    <br>
+    <div class="title">
+      <div class="titletext">Statistics</div>
+    </div>
+    <div class="texty">
+      <div class="generation">
+      </div>
+      <div class="livecells">
+      </div>
+      <div class="maxcells">
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="title">
+      <div class="titletext">Pre-made patterns</div>
+    </div>
+    <div class="texty">
+      <input type="button" class="patternbutton" id="stilllifes" value="Still lifes">
+      <input type="button" class="patternbutton" id="oscillators" value="Oscillators">
+      <input type="button" class="patternbutton" id="glider" value="Glider">
+      <input type="button" class="patternbutton" id="glidergun" value="Glider Gun">
+      <input type="button" class="patternbutton" id="lwss" value="Lightweight Spaceship">
+      <input type="button" class="patternbutton" id="acorn" value="Acorn">
+      <input type="button" class="patternbutton" id="diehard" value="Diehard">
+      <input type="button" class="patternbutton" id="mininfgrowth" value="Minimal-Cell Inf. Growth">
+      <input type="button" class="patternbutton" id="onerowinfgrowth" value="One-row Inf. Growth">
+      <input type="button" class="patternbutton" id="rpentomino" value="R-pentomino">
+    </div>
+    <br>
+    <br>
+    <div class="title">
+      <div class="titletext">Information</div>
+    </div>
+    <div class="texty">
+      Cells start out as either dead or alive (click to toggle).<br>
+      As the 'generations' progress,
+      each cells fate is determined by its neighbors.<br><br>
+      1) Any live cell with less than 2 neighbors dies (underpopulation)<br>
+      2) Any live cell with more than 3 neighbors dies (overcrowding)<br>
+      4) Any dead cell with 3 neighbors comes to life (reproduction)<br>
+    </div>
+    <br>
+    <br>
+    <div class="footertitle">
+      <div class="wiki"><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life on Wikipedia</a></div>
+      <div class="credits">Made by <a href="https://github.com/ChrisMoutsos">Chris Moutsos</a></div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,117 @@
+body {
+  background-color: #f9f9f9;
+  color: black;
+  font-family: Arial;
+  font-size: 12;
+}
+
+.maintitle {
+  font-weight: bold;
+  background-color: #DBBFD3;
+  width: 50%;
+  height: 40px;
+  margin: auto;
+}
+
+.maintitletext {
+  color: #460024;
+  position: relative;
+  margin-left: 10px;
+}
+
+.title {
+  margin: auto;
+  width: 50%;
+  background-color: #DBBFD3;
+}
+
+.titletext {
+  color: #460024;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.texty {
+  background-color: #f2f2f2;
+  width: 50%;
+  margin: auto;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.sizeinput {
+  width: 25px;
+}
+
+.controlcontainer {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.board {
+  display: block;
+  padding: 0;
+  margin: auto;
+  border: solid 1px #dddddd;
+}
+
+.cell {
+  width: 10px;
+  height: 10px;
+  border: solid 1px #460024;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.alive {
+  background-color: #872F6D;
+}
+
+.generation {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.livecells {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.maxcells {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.footertitle {
+  margin: auto;
+  width: 50%;
+  height: 20px;
+  background-color: #DBBFD3;
+}
+
+.wiki {
+  float: left;
+  font-weight: bold;
+  color: #460024;
+}
+
+.credits {
+  float: right;
+  font-weight: bold;
+  color: #460024;
+}
+
+a:link {
+  text-decoration: none;
+  color: #460024;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #460024;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #872F6D;
+}
