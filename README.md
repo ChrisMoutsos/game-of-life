@@ -1,9 +1,9 @@
 (work in progress)
 
-##Overview
+###Overview
 This is a JavaScript/JQuery/HTML5 Canvas implementation of John Conway's Game of Life.
 
-##Upcoming features:
--Shape copy/paste
--Color options
--Zoom
+###Upcoming features:
+- Shape copy/paste
+- Color options
+- Zoom
