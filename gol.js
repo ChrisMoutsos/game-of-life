@@ -94,7 +94,19 @@ var main = function() {
 
   //Rainbow button
   $("#rainbow").change(function() {
-    board.rainbowOn = $(this).is(":checked");
+    if ($(this).is(":checked")) {
+      board.rainbowOn = true;
+    }
+    else {
+      board.rainbowOn = false;
+    }
+    var savedAliveCells = [];
+      for (var i = 0; i < board.aliveCells.length; i++) 
+        savedAliveCells[i] = board.aliveCells[i];
+      board.clear();
+      for (i = 0; i < savedAliveCells.length; i++) 
+        board.cellsToUnkill[i] = savedAliveCells[i];
+      board.unkillCells();
   });
 
   //Pattern buttons
@@ -324,7 +336,8 @@ function Board() {
   this.maxCells = 0;
   this.maxCellGen = 0;
   this.rainbowOn = false;
-  this.rainbowColors = [ "#A83939", "#A839A5", "#3964A8", "#39A896", "#42A839", "#FF9721", "#FFFB21" ];
+  //this.rainbowColors = [ "#A83939", "#A839A5", "#3964A8", "#39A896", "#42A839", "#FF9721", "#FFFB21" ];
+  this.rainbowColors = [ "#FF0000", "#FF00EA", "#3300FF", "#00FFE5", "#00FF40", "#FFFB00", "#FFAE00" ];
 
   for (var i = 0; i < this.rows*this.cols; i++)
     this.cellIsAlive[i] = 0;
@@ -561,11 +574,11 @@ Board.prototype.evolve = function() {
 };
 
 Board.prototype.updateGenerationText = function() {
-  $(".generation").text("Generation: " + this.gen.toString());
+  $("#generation").text("Generation: " + this.gen.toString());
 };
 
 Board.prototype.updateLiveCellsText = function() {
-  $(".livecells").text("Live cells: " + this.aliveCells.length);
+  $("#livecells").text("Live cells: " + this.aliveCells.length);
 };
 
 Board.prototype.updateMaxCellsText = function() {
@@ -573,7 +586,7 @@ Board.prototype.updateMaxCellsText = function() {
     this.maxCells = this.aliveCells.length;
     this.maxCellGen = this.gen;
   }
-  $(".maxcells").text("Max cells: " + this.maxCells + " (gen " + this.maxCellGen + ")");
+  $("#maxcells").text("Max cells: " + this.maxCells + " (gen " + this.maxCellGen + ")");
 };
 
 Array.prototype.eraseDuplicates = function() {
