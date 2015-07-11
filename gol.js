@@ -28,7 +28,7 @@ var main = function() {
   //Resize forms keypress
   $(".sizeinput").keypress(function(e) {
     if (e.which == '13') {
-      $("#startstop").val("Start");
+      $("#atartstop").val("Start");
       board.resize(parseInt($("#rowinput").val(), 10),
                   parseInt($("#colinput").val(), 10));
       started = false;
@@ -90,6 +90,11 @@ var main = function() {
       clearInterval(evolver);
       evolver = setInterval(board.evolve.bind(board), board.speed);
     }
+  });
+
+  //Rainbow button
+  $("#rainbow").change(function() {
+    board.rainbowOn = $(this).is(":checked");
   });
 
   //Pattern buttons
@@ -318,6 +323,8 @@ function Board() {
   this.sqSize = 5;
   this.maxCells = 0;
   this.maxCellGen = 0;
+  this.rainbowOn = false;
+  this.rainbowColors = [ "#A83939", "#A839A5", "#3964A8", "#39A896", "#42A839", "#FF9721", "#FFFB21" ];
 
   for (var i = 0; i < this.rows*this.cols; i++)
     this.cellIsAlive[i] = 0;
@@ -371,8 +378,14 @@ Board.prototype.unkillCells = function() {
   var cx = document.querySelector(".board").getContext("2d");
   cx.fillStyle = "#872F6D";
   var row, col; //0 <= row < this.rows
+  var randIndex;
   
   for (var i = 0; i < this.cellsToUnkill.length; i++) {
+    if (this.rainbowOn) {
+       randIndex = Math.floor(Math.random() * this.rainbowColors.length);
+       cx.fillStyle = this.rainbowColors[randIndex];
+    }
+
     this.aliveCells.push(this.cellsToUnkill[i]);
     
     row = Math.floor(this.cellsToUnkill[i]/this.cols);
@@ -388,7 +401,7 @@ Board.prototype.toggleCell = function(cell) {
   var cx = document.querySelector(".board").getContext("2d");
   cx.fillStyle = "#872F6D";
   var row, col; //0 <= row < this.rows
-  var index;
+  var index, randIndex;
   
   row = Math.floor(cell/this.cols);
   col = Math.floor(cell%this.cols);
@@ -400,6 +413,10 @@ Board.prototype.toggleCell = function(cell) {
     cx.clearRect(col*this.sqSize, row*this.sqSize, this.sqSize-1, this.sqSize-1);
   }
   else {
+    if (this.rainbowOn) {
+       randIndex = Math.floor(Math.random() * this.rainbowColors.length);
+       cx.fillStyle = this.rainbowColors[randIndex];
+    }
     this.aliveCells.push(cell);
     this.cellIsAlive[cell] = 1;
     cx.fillRect(col*this.sqSize, row*this.sqSize, this.sqSize-1, this.sqSize-1);

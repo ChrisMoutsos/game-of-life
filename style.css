@@ -48,6 +48,14 @@ body {
   display: inline-block;
 }
 
+#wrap {
+  font-size: 8px;
+}
+
+#rainbow {
+  font-size: 8px;
+}
+
 .board {
   display: block;
   padding: 0;
@@ -55,24 +63,11 @@ body {
   border: solid 1px #dddddd;
 }
 
-.cell {
-  width: 10px;
-  height: 10px;
-  border: solid 1px #460024;
-  background-color: #FFFFFF;
-  float: left;
-}
-
 .alive {
   background-color: #872F6D;
 }
 
 .generation {
-  margin-left: 5px;
-  display: inline-block;
-}
-
-.livecells {
   margin-left: 5px;
   display: inline-block;
 }
