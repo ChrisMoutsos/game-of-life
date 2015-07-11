@@ -1,9 +1,6 @@
 (work in progress)
 
-###Overview
-This is a JavaScript/JQuery/HTML5 Canvas implementation of John Conway's Game of Life.
+Live link: [http://chrismoutsos.github.io/game-of-life/](http://chrismoutsos.github.io/game-of-life/)
 
-###Upcoming features:
-- Shape copy/paste
-- Color options
-- Zoom
+###Overview
+This is a JavaScript/JQuery/HTML5 Canvas implementation of John Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
